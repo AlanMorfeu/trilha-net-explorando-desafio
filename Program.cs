@@ -5,18 +5,20 @@ Console.OutputEncoding = Encoding.UTF8;
 
 // Cria os modelos de hóspedes e cadastra na lista de hóspedes
 List<Pessoa> hospedes = new List<Pessoa>();
+Pessoa hospede = new Pessoa();
 
-Pessoa p1 = new Pessoa(nome: "Hóspede 1");
-Pessoa p2 = new Pessoa(nome: "Hóspede 2");
+Console.WriteLine("------------------------");
+Console.WriteLine("===== Hotel DioWex =====");
+Console.WriteLine("------------------------");
 
-hospedes.Add(p1);
-hospedes.Add(p2);
+hospedes = hospede.CadastrarPessoas();
 
 // Cria a suíte
-Suite suite = new Suite(tipoSuite: "Premium", capacidade: 2, valorDiaria: 30);
+Suite suiteTipo = new Suite();
+var(suite, dias) = suiteTipo.EscolherSuite();
 
 // Cria uma nova reserva, passando a suíte e os hóspedes
-Reserva reserva = new Reserva(diasReservados: 5);
+Reserva reserva = new Reserva(diasReservados: dias);
 reserva.CadastrarSuite(suite);
 reserva.CadastrarHospedes(hospedes);
 
